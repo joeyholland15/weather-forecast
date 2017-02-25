@@ -1,6 +1,9 @@
 import { UPDATE_LOCATION_SUCCESS, UPDATE_LOCATION_FAILURE } from '../../actions/types';
 
-const initialState = {};
+const initialState = {
+  city: {},
+  list: [],
+};
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -8,6 +11,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         list: action.list,
+        city: action.city,
       };
 
     case UPDATE_LOCATION_FAILURE:
