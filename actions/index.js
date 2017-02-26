@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actions from './types';
+import { baseURL, openWeatherMapKey } from '../src/constants';
 
 export function updateLocationSuccess(list, city) {
   return {
@@ -22,9 +23,9 @@ export function updateLocation(zip) {
       type: actions.UDPATE_LOCATION,
       zip,
     });
-    return axios.get(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&APPID=776946775253cb31e619a017dc5e05fa`).then((resp) => {
-      if (resp.error) { // handle error if necessary
-        return dispatch(updateLocationFailure(resp.error));
+    return axios.get(`${baseURL}${zip},us&APPID=${openWeatherMapKey}`).then((resp) => {
+      if (resp.error || resp.data.message === 'Error') { // handle error if necessary
+        return dispatch(updateLocationFailure(true));
       }
       const { city, list } = resp.data;
       return dispatch(updateLocationSuccess(list, city));

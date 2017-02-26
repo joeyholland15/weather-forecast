@@ -9,7 +9,7 @@ class App extends React.Component {
         <LocationInput />
         <WeatherForecast />
       </div>
-    )
+    );
   }
 }
 

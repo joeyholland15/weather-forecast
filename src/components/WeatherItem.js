@@ -5,15 +5,15 @@ const WeatherItem = ({
   date,
 }) => (
   <div className="weather-item">
-    <div>{date}</div>
-    {item && item.map((time, idx) => (
-      <div key={idx}>{time.description}</div>
+    <div className="date">{date}</div>
+    {item && item.map((weatherObj, idx) => (
+      <div key={idx}>{`${weatherObj.time}: ${weatherObj.weather.description}`}</div>
     ))}
   </div>
 );
 
 WeatherItem.propTypes = {
-  item: React.PropTypes.array,
+  item: React.PropTypes.arrayOf(React.PropTypes.object),
   date: React.PropTypes.string,
 };
 

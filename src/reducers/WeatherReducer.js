@@ -3,6 +3,7 @@ import { UPDATE_LOCATION_SUCCESS, UPDATE_LOCATION_FAILURE } from '../../actions/
 const initialState = {
   city: {},
   list: [],
+  error: false,
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +13,7 @@ export default function (state = initialState, action) {
         ...state,
         list: action.list,
         city: action.city,
+        error: false,
       };
 
     case UPDATE_LOCATION_FAILURE:

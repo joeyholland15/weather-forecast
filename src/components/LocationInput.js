@@ -10,11 +10,12 @@ class LocationInput extends React.Component {
 
   handleKeyUp = (event) => {
     event.preventDefault();
+    // update value on key up
     this.setState({ value : event.target.value });
   }
 
   handleKeyDown = (event) => {
-    // if the user presses enter, submit the value
+    // allow submission on enter press
     if (event.keyCode === 13) {
       event.preventDefault();
       this.props.updateLocation(this.state.value);
@@ -29,7 +30,7 @@ class LocationInput extends React.Component {
         <input
           onKeyUp={this.handleKeyUp}
           onKeyDown={this.handleKeyDown}
-          placeholder="Enter Zipcode"
+          placeholder="Enter zip code..."
         />
         <button onClick={this.handleSubmit}>Set Location</button>
       </div>

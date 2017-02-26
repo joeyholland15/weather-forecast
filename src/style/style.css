@@ -1,9 +1,31 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.forecast-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .weather-item {
-  display: inline-block;
-  border: 1px solid black;
-  margin: 0 10px;
-  vertical-align: top;
+  flex: 1;
+  min-width: 30%;
   padding: 10px;
-  border-radius: 4px;
-  height: 50px;
+  border: 1px solid black;
+  border-left: none;
+  margin: 10px 3px;
+  font-size: 12px;
+  border: 1px solid black;
+}
+
+.date {
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+}
+
+.error {
+  margin-top: 10px;
 }
