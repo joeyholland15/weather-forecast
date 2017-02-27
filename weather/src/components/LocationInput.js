@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateLocation } from '../../actions';
+import { updateLocation } from '../actions';
 
 class LocationInput extends React.Component {
   state = {
+    // initialize input value
     value: '',
   }
 
   handleKeyUp = (event) => {
     event.preventDefault();
-    // update value on key up
+    // track input value on key up
     this.setState({ value : event.target.value });
   }
 
@@ -22,6 +23,7 @@ class LocationInput extends React.Component {
     }
   }
 
+  // dispatch the updateLocation action on input submission
   handleSubmit = () => this.props.updateLocation(this.state.value);
 
   render() {

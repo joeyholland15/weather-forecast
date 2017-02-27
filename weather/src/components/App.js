@@ -5,7 +5,7 @@ import WeatherForecast from './WeatherForecast';
 class App extends React.Component {
   render() {
     return (
-      <div className="test">
+      <div>
         <LocationInput />
         <WeatherForecast />
       </div>

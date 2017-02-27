@@ -41,7 +41,7 @@
 }
 
 .events-container {
-  background: lightgray;
+  background: #ECECEC;
   height: 100%;
   width: 100%;
   padding: 0 10px;
@@ -67,7 +67,7 @@
 .event {
   border: 1px solid darkgray;
   border-left: 4px solid navy;
-  background: white;
+  background: #FFFFFF;
   padding: 5px;
   /* events within event blocks are assigned flex-basis widths based on number
   of overlapping events to account for and height based on duration */
@@ -95,6 +95,7 @@
 .event-name {
   color: navy;
   font-size: 10px;
+  font-weight: bold;
 }
 
 .event-location {

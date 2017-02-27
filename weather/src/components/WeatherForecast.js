@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import WeatherItem from './WeatherItem';
 
 class WeatherForecast extends React.Component {
+  // method to format time and improve readability
   formatTime = (timeString) => {
     const timeMap = {
       '00:00:00': '12am',
@@ -29,6 +30,7 @@ class WeatherForecast extends React.Component {
       return null;
     }
 
+    // create an organized grouping of weather data by upcoming date
     const weatherByDate = list && list.reduce((weatherMap, item) => {
       const nextWeatherMap = { ...weatherMap };
 
@@ -39,11 +41,13 @@ class WeatherForecast extends React.Component {
       const weather = item && item.weather && item.weather[0];
       const time = this.formatTime(timeString);
 
+      // initialize the array of timeslots for a given day if necessary
       if (!nextWeatherMap.hasOwnProperty(dateString)) {
         nextWeatherMap[dateString] = [{ weather, time }];
         return nextWeatherMap;
       }
 
+      // add the current weather timeslot to the daily weather data
       nextWeatherMap[dateString] = [...nextWeatherMap[dateString], { weather, time }];
       return nextWeatherMap;
     }, {});
@@ -76,6 +80,7 @@ WeatherForecast.defaultProps = {
 };
 
 const mapStateToProps = (state) => {
+  // extract the city name from store
   const cityName = state.weather.city && state.weather.city.name;
 
   return {
